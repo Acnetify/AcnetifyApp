@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/signin_activity"
+    tools:context=".views.profile.ProfileFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/dmsans_black"
+            android:text="@string/profile"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageViewUserAvatar"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="66dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbarLayout"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+        app:srcCompat="@drawable/blank_profile_picture" />
+
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/dmsans_black"
+        android:text="@string/mock_name"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewUserAvatar"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/imageViewUserAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewUserAvatar" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="330dp"
+        android:layout_marginTop="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_button_fill"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:backgroundTint="@color/btn_color_filled"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewUserAvatar"
+        app:layout_constraintStart_toStartOf="@+id/imageViewUserAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

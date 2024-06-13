@@ -1,3 +1,72 @@
 <resources>
     <string name="app_name">Acnetify</string>
+    <string name="bottom_menu_home">Home</string>
+    <string name="bottom_menu_acne">Acne</string>
+    <string name="bottom_menu_history">History</string>
+    <string name="bottom_menu_profile">Profile</string>
+    <string name="camera">camera</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="acne_types_page">Acne Types Page</string>
+    <string name="history_acne_page">History Acne Page</string>
+    <string name="home_page">Home Page</string>
+    <string name="profile_page">Profile Page</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.
+    </string>
+    <string name="lorem_ipsum_medium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor.
+    </string>
+    <string name="welcome_image">Welcome Image</string>
+    <string name="welcome_title">Welcome to Acnetify</string>
+    <string name="welcome_subtitle">Find the best treatment \nfor your acne here</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_subtitle">Welcome back. You have been missed during this time</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_subtitle">Ready to explore? Create your account by filling the form below.</string>
+    <string name="back_button">Back Button</string>
+    <string name="feeds">Feeds</string>
+    <string name="latest_feeds">Latest Feeds</string>
+    <string name="acne_a">Acne-A</string>
+    <string name="acne_types">Acne Types</string>
+    <string name="acne_types_image">Acne Types Image</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="mock_name">Lorem Ipsum Dolor Si Amet Lorenzo</string>
+    <string name="logout">Logout</string>
+    <string name="choose_image">Choose your image</string>
+    <string name="gallery">Gallery</string>
+    <string name="switch_camera">Switch camera</string>
+    <string name="upload">Upload</string>
+    <string name="image_preview">Image Preview</string>
+    <string name="add_your_reviews">Add your reviews</string>
+    <string name="post">Post</string>
+    <string name="retry">Retry</string>
+    <string name="search_your_acne_type_here">Search your acne type here</string>
+    <string name="something_error">Something error</string>
+    <string name="no_history_available">No History Available</string>
+    <string name="history_is_empty">History is empty</string>
+    <string-array name="acne_types_array">
+        <item>whitehead</item>
+        <item>blackhead</item>
+        <item>acne_nodules</item>
+        <item>milia</item>
+        <item>papula_pustula</item>
+    </string-array>
 </resources>

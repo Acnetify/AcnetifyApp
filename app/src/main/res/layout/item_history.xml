@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="10dp"
+    app:cardUseCompatPadding="true">
+
+    <ImageView
+        android:id="@+id/imageViewAcneHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder"
+        android:contentDescription="@string/acne_types_image" />
+
+    <TextView
+        android:id="@+id/textViewAcneTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="13dp"
+        android:text="@string/acne_a"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmsans_black"
+        android:textSize="17sp" />
+
+</androidx.cardview.widget.CardView>

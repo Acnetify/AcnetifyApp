@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/bottom_menu_home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/acneTypes"
+        android:title="@string/bottom_menu_acne"
+        android:icon="@drawable/ic_acne"/>
+
+    <item
+        android:id="@+id/placeholder_fab"
+        android:title=""
+        android:enabled="false"/>
+
+    <item
+        android:id="@+id/history"
+        android:title="@string/bottom_menu_history"
+        android:icon="@drawable/ic_history"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/bottom_menu_profile"
+        android:icon="@drawable/ic_profile"/>
+
+</menu>
