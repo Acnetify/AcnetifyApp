@@ -99,7 +99,7 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@drawable/shape_button_border"
+        android:background="#D9D2E2"
         android:text="@string/sign_in"
         android:textColor="#D47C81"
         android:textStyle="bold"
