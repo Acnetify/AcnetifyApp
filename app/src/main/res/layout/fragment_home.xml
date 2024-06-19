@@ -16,17 +16,59 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewGreeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/dmsans_black"
-            android:text="@string/feeds"
+            android:text="Hello, Risna"
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+        <TextView
+            android:id="@+id/textViewSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="Let's take care of your skin!"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_button_border"
+                android:padding="8dp"
+                android:text="Search"
+                android:textColor="@color/pink" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewLatestFeeds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:text="Latest Feeds"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_scrollFlags="scroll|enterAlways" />
 
@@ -37,6 +79,7 @@
         android:id="@+id/swipeRefreshFeeds"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="-20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appbarLayout"
         app:layout_constraintVertical_bias="0.0"
