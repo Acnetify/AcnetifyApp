@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Acnetify</string>
     <string name="bottom_menu_home">Home</string>
     <string name="bottom_menu_acne">Acne</string>
     <string name="bottom_menu_history">History</string>
