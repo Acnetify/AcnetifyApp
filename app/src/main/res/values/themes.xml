@@ -1,9 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <!--  Theme.Material3.DayNight.NoActionBar  -->
-    <!--  Theme.AppCompat.Light.NoActionBar -->
     <style name="Base.Theme.Acnetify" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Customize your light theme here. -->
         <item name="colorPrimary">#D47C81</item>
         <item name="android:colorBackground">@color/background_color</item>
     </style>
@@ -13,8 +10,7 @@
         <item name="android:colorBackground">@color/background_color</item>
     </style>
 
-    <style name="roundedImageViewRounded">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
 </resources>
