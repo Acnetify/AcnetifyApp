@@ -23,10 +23,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="40dp"
-            android:text="Hello, Risna"
+            android:text="Hello, Guest"
             android:textColor="@color/black"
             android:textSize="34sp"
             android:textStyle="bold"
+            android:ellipsize="end"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +88,7 @@
         android:id="@+id/swipeRefreshFeeds"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="-20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appbarLayout"
         app:layout_constraintVertical_bias="0.0"

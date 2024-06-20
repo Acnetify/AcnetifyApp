@@ -52,6 +52,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Observe the logged-in user
+        lifecycleScope.launch {
+            val loggedInUser = viewModel.getLoggedInUser()
+            updateViewState(loggedInUser != null)
+        }
+
         // Initialize UI components and observe data
         setupRecyclerView()
         observeViewModel()
@@ -153,6 +159,15 @@ class HomeFragment : Fragment() {
         binding.acneTypeDropdown.setOnItemClickListener { _, _, position, _ ->
             val selectedAcneType = acneTypes[position]
             viewModel.searchReviews(selectedAcneType)
+        }
+    }
+
+    private fun updateViewState(isLoggedIn: Boolean) {
+        if (isLoggedIn) {
+            val username = viewModel.getLoggedInUser()?.username ?: ""
+            binding.welcomeMessage.text = "Hello, $username"
+        } else {
+            binding.welcomeMessage.text = "Hello, Guest"
         }
     }
 }

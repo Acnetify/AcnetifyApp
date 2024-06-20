@@ -17,18 +17,18 @@
             android:id="@+id/imageViewAcne"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/acne_types_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_placeholder"
-            android:contentDescription="@string/acne_types_image" />
+            app:srcCompat="@drawable/ic_placeholder" />
 
         <TextView
             android:id="@+id/textViewAcneType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/dmsans_black"
             android:text="@string/acne_a"
@@ -43,6 +43,7 @@
             android:layout_width="208dp"
             android:layout_height="93dp"
             android:layout_marginStart="10dp"
+            android:layout_marginBottom="7dp"
             android:fontFamily="@font/dmsans_black"
             android:textColor="@color/black"
             android:text="@string/lorem_ipsum_medium"

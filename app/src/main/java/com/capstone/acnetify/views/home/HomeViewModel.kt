@@ -8,6 +8,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.filter
 import com.capstone.acnetify.data.model.ReviewsModel
+import com.capstone.acnetify.data.repository.AuthRepository
 import com.capstone.acnetify.data.repository.ReviewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,6 +29,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val reviewsRepository: ReviewsRepository,
+    private val authRepository: AuthRepository,
 ) : ViewModel() {
 
     private val currentQuery = MutableStateFlow<String?>(null)
@@ -47,4 +49,12 @@ class HomeViewModel @Inject constructor(
     fun searchReviews(query: String?) {
         currentQuery.value = query
     }
+
+    /**
+     * Retrieves the currently logged-in user (if any).
+     *
+     * You'll likely want to expose this as a LiveData or StateFlow in a real application
+     * to observe changes in the login status from your ProfileFragment.
+     */
+    fun getLoggedInUser() = authRepository.getLoggedInUser()
 }
