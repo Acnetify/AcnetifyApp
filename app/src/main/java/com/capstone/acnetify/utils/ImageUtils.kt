@@ -2,13 +2,20 @@ package com.capstone.acnetify.utils
 
 import android.content.ContentValues
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import androidx.exifinterface.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
 import com.capstone.acnetify.BuildConfig
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -128,5 +135,117 @@ object ImageUtils {
         )
 
         // Example URI format: content://com.capstone.acnetify.fileprovider/my_images/MyCamera/20230825_133659.jpg
+    }
+
+    /**
+     * Converts a given [imageUri] to a File object.
+     *
+     * @param imageUri The URI of the image to convert.
+     * @param context The context used to access content resolver and file operations.
+     * @return A File object representing the image corresponding to the provided URI.
+     */
+    fun uriToFile(imageUri: Uri, context: Context): File {
+        // Create a temporary file to store the converted image.
+        val myFile = createCustomTempFile(context)
+
+        // Open an input stream to read data from the image URI.
+        val inputStream = context.contentResolver.openInputStream(imageUri) as InputStream
+
+        // Open an output stream to write data to the temporary file.
+        val outputStream = FileOutputStream(myFile)
+
+        // Create a buffer to read data from the input stream.
+        val buffer = ByteArray(1024)
+        var length: Int
+
+        // Read data from the input stream and write it to the output stream until the end of the stream is reached.
+        while (inputStream.read(buffer).also { length = it } > 0) outputStream.write(buffer, 0, length)
+
+        // Close both input and output streams.
+        outputStream.close()
+        inputStream.close()
+
+        // Return the created File object.
+        return myFile
+    }
+
+    /**
+     * Reduces the size of the image file to meet a certain maximum size threshold.
+     *
+     * This function compresses the image file until its size is within the specified maximal size threshold.
+     * It iteratively reduces the compression quality until the image size is below the threshold.
+     * The compressed image is then written back to the original file.
+     *
+     * @return A File object representing the reduced image file.
+     */
+    fun File.reduceFileImage(): File {
+        // Initialize variables
+        val file = this
+        val bitmap = BitmapFactory.decodeFile(file.path).getRotatedBitmap(file)
+        var compressQuality = 100
+        var streamLength: Int
+
+        // Compress the image until its size is within the threshold
+        do {
+            val bmpStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+            val bmpPicByteArray = bmpStream.toByteArray()
+            streamLength = bmpPicByteArray.size
+            compressQuality -= 5 // Reduce compression quality
+        } while (streamLength > MAXIMAL_SIZE)
+
+        // Write the compressed image back to the file
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+
+        return file
+    }
+
+    /**
+     * Retrieves a rotated bitmap based on the orientation information extracted from the given file's Exif data.
+     *
+     * This function is particularly useful for handling images that may have been captured in different
+     * orientations.
+     *
+     * @param file The File object representing the image file from which the orientation information will be extracted.
+     * @return A rotated Bitmap object, adjusted according to the orientation information.
+     */
+    private fun Bitmap.getRotatedBitmap(file: File): Bitmap {
+        // Retrieve the orientation information from the Exif data of the image file
+        val orientation = ExifInterface(file).getAttributeInt(
+            ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
+        )
+
+        // Rotate the bitmap based on the orientation information
+        return when (orientation) {
+            ExifInterface.ORIENTATION_ROTATE_90 -> rotateImage(this, 90F)
+            ExifInterface.ORIENTATION_ROTATE_180 -> rotateImage(this, 180F)
+            ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(this, 270F)
+            ExifInterface.ORIENTATION_NORMAL -> this
+            else -> this // Return the bitmap as is if no rotation is needed
+        }
+    }
+
+    /**
+     * Rotates the given Bitmap image by the specified angle.
+     *
+     * @param source The source Bitmap object to be rotated.
+     * @param angle The angle of rotation in degrees.
+     * @return A new rotated Bitmap object.
+     */
+    private fun rotateImage(source: Bitmap, angle: Float): Bitmap {
+        // Create a new matrix for rotation
+        val matrix = Matrix()
+        matrix.postRotate(angle)
+
+        // Apply rotation to the source Bitmap and create a new rotated Bitmap
+        return Bitmap.createBitmap(
+            source, // Source Bitmap object
+            0,      // X coordinate of the top-left corner of the source rectangle
+            0,      // Y coordinate of the top-left corner of the source rectangle
+            source.width,  // Width of the source rectangle
+            source.height, // Height of the source rectangle
+            matrix, // Rotation matrix
+            true    // Filter to be used when the source pixels are transformed
+        )
     }
 }

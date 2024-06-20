@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import com.capstone.acnetify.databinding.ActivityCameraBinding
 import com.capstone.acnetify.utils.ImageUtils
 import com.capstone.acnetify.views.acne_upload.AcneUploadActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple activity to capture images using CameraX.
@@ -26,6 +27,7 @@ import com.capstone.acnetify.views.acne_upload.AcneUploadActivity
  * This activity allows users to switch between front and back cameras, capture images,
  * and save them as temporary files.
  */
+@AndroidEntryPoint
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
@@ -181,7 +183,7 @@ class CameraActivity : AppCompatActivity() {
                 // Handle exceptions by displaying a toast message and logging the error
                 Toast.makeText(
                     this@CameraActivity,
-                    "Gagal memunculkan kamera.",
+                    "Failed to show camera.",
                     Toast.LENGTH_SHORT
                 ).show()
                 Log.e(TAG, "startCamera: ${e.message}")
@@ -221,7 +223,7 @@ class CameraActivity : AppCompatActivity() {
                 override fun onError(e: ImageCaptureException) {
                     Toast.makeText(
                         this@CameraActivity,
-                        "Gagal mengambil gambar.",
+                        "Failed to take photo.",
                         Toast.LENGTH_SHORT
                     ).show()
                     Log.e(TAG, "onError: ${e.message}")
@@ -243,6 +245,7 @@ class CameraActivity : AppCompatActivity() {
             putExtra(EXTRA_CAMERAX_IMAGE, imageUri.toString())
         }
         startActivity(intent)
+        finish()
     }
 
     /**

@@ -59,14 +59,22 @@ class AcneTypesAdapter: ListAdapter<AcneTypesModel, AcneTypesAdapter.MyViewHolde
          */
         fun bind(acneTypes: AcneTypesModel) {
             // Set the acne type & description text
-            binding.textViewAcneType.text = acneTypes.acneType
+            binding.textViewAcneType.text = when (acneTypes.acneType) {
+                "acne_nodules" -> "Nodules"
+                "milia" -> "Milia"
+                "blackhead" -> "Blackhead"
+                "whitehead" -> "Whitehead"
+                "papula_pustula" -> "Papula & Pustula"
+                else -> "Unknown Acne Type"
+            }
             binding.textViewAcneDescription.text = acneTypes.description
 
             // Load the acne image using Glide
             Glide.with(binding.imageViewAcne.context)
-                .load(acneTypes.imageUrl)
+                .load(acneTypes.imageResId)
                 .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
                 .into(binding.imageViewAcne)
+
 
             // Set click listener for item, potentially for navigation to a detail activity
             binding.root.setOnClickListener {

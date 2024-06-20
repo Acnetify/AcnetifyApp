@@ -33,7 +33,9 @@
             android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_menu" >
+            app:menu="@menu/bottom_menu"
+            app:itemIconTint="@color/navigation_item_color"
+            app:itemTextColor="@color/navigation_item_color" >
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
@@ -44,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="#D47C81"
         android:contentDescription="@string/camera"
         android:focusable="true"
         android:focusedByDefault="true"
@@ -53,6 +55,7 @@
         app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar"
         app:layout_constraintTop_toBottomOf="@+id/frame_layout"
+        app:tint="@color/white"
         tools:ignore="MissingConstraints"
         tools:targetApi="o" />
 

@@ -1,6 +1,7 @@
 package com.capstone.acnetify.views.history_acne
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -12,6 +13,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.capstone.acnetify.R
 import com.capstone.acnetify.data.model.ImageSubmissionsModel
 import com.capstone.acnetify.databinding.ItemHistoryBinding
+import com.capstone.acnetify.views.acne_detail.AcneDetailActivity
 
 /**
  * Adapter class for displaying a list of ImageSubmissionsModel objects in a RecyclerView.
@@ -60,7 +62,14 @@ class HistoryAcneAdapter: ListAdapter<ImageSubmissionsModel, HistoryAcneAdapter.
          */
         fun bind(history: ImageSubmissionsModel) {
             // Set the acne type text
-            binding.textViewAcneTypes.text = history.acneType
+            binding.textViewAcneTypes.text = when (history.acneType) {
+                "acne_nodules" -> "Nodules"
+                "milia" -> "Milia"
+                "blackhead" -> "Blackhead"
+                "whitehead" -> "Whitehead"
+                "papula_pustula" -> "Papula & Pustula"
+                else -> "Unknown Acne Type"
+            }
 
             // Load the acne image using Glide
             Glide.with(binding.imageViewAcneHistory.context)
@@ -70,11 +79,18 @@ class HistoryAcneAdapter: ListAdapter<ImageSubmissionsModel, HistoryAcneAdapter.
 
             // Set click listener for item, potentially for navigation to a detail activity
             binding.root.setOnClickListener {
-                // Uncomment the code below and implement the intent to navigate to DetailAcneActivity
-                // val intent = Intent(binding.root.context, DetailAcneActivity::class.java).apply {
-                //     putExtra(DetailAcneActivity.EXTRA_STORY_ITEM, history)
-                // }
-                // binding.root.context.startActivity(intent)
+                val intent = Intent(binding.root.context, AcneDetailActivity::class.java).apply {
+                    putExtra(
+                        AcneDetailActivity.EXTRA_ACNE_ITEM,
+                        ImageSubmissionsModel(
+                            history.imageUrl,
+                            history.createdAt,
+                            history.acneType,
+                            history.id,
+                        )
+                    )
+                }
+                binding.root.context.startActivity(intent)
             }
         }
     }

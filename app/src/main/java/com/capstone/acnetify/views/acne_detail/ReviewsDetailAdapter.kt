@@ -1,22 +1,19 @@
-package com.capstone.acnetify.views.home
+package com.capstone.acnetify.views.acne_detail
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.acnetify.data.model.ReviewsModel
-import com.capstone.acnetify.databinding.ItemFeedBinding
+import com.capstone.acnetify.databinding.ItemFeedDetailBinding
 
-/**
- * Adapter class for displaying a list of [ReviewsModel] objects in a RecyclerView.
- *
- * This adapter uses [PagingDataAdapter] for efficient updates and a DiffUtil callback to compute
- * the difference between lists.
- */
-class ReviewsAdapter: PagingDataAdapter<ReviewsModel, ReviewsAdapter.MyViewHolder>(DIFF_CALLBACK) {
-
+class ReviewsDetailAdapter(
+    private val onUpvoteClick: (String) -> Unit,
+    private val onCancelUpvoteClick: (String) -> Unit
+) : PagingDataAdapter<ReviewsModel, ReviewsDetailAdapter.MyViewHolder>(DIFF_CALLBACK) {
     /**
      * Called when RecyclerView needs a new ViewHolder of the given type to represent an item.
      *
@@ -25,7 +22,7 @@ class ReviewsAdapter: PagingDataAdapter<ReviewsModel, ReviewsAdapter.MyViewHolde
      * @return A new ViewHolder that holds a View of the given view type.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemFeedBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemFeedDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -42,16 +39,17 @@ class ReviewsAdapter: PagingDataAdapter<ReviewsModel, ReviewsAdapter.MyViewHolde
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val reviewsModel = getItem(position)
         if (reviewsModel != null) {
-           holder.bind(reviewsModel)
+            Log.d("ReviewsAdapter", "Binding item at position $position")
+            holder.bind(reviewsModel)
         }
     }
 
     /**
      * ViewHolder class for the RecyclerView.
      *
-     * It holds a reference to the [ItemFeedBinding] to bind data to the views.
+     * It holds a reference to the [ItemFeedDetailBinding] to bind data to the views.
      */
-    class MyViewHolder(private val binding: ItemFeedBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(private val binding: ItemFeedDetailBinding): RecyclerView.ViewHolder(binding.root) {
 
         /**
          * Binds the data from a [ReviewsModel] object to the views.
@@ -61,23 +59,16 @@ class ReviewsAdapter: PagingDataAdapter<ReviewsModel, ReviewsAdapter.MyViewHolde
         fun bind(reviewsModel: ReviewsModel) {
             // Set the user username, acne type, and description text
             binding.textViewUsername.text = reviewsModel.userUsername
-            binding.textViewAcne.text = when (reviewsModel.acneType) {
-                "acne_nodules" -> "Nodules"
-                "milia" -> "Milia"
-                "blackhead" -> "Blackhead"
-                "whitehead" -> "Whitehead"
-                "papula_pustula" -> "Papula & Pustula"
-                else -> ""
-            }
             binding.textViewDescription.text = reviewsModel.body
 
-            // Set click listener for item, potentially for navigation to a detail activity
-            binding.root.setOnClickListener {
-                // Uncomment the code below and implement the intent to navigate to DetailAcneActivity
-                // val intent = Intent(binding.root.context, DetailAcneActivity::class.java).apply {
-                //     putExtra(DetailAcneActivity.EXTRA_STORY_ITEM, history)
-                // }
-                // binding.root.context.startActivity(intent)
+            // Handle upvote button click
+            binding.upvoteButton.setOnClickListener {
+                onUpvoteClick(reviewsModel.id!!)
+            }
+
+            // Handle cancel upvote button click
+            binding.downvoteButton.setOnClickListener {
+                onCancelUpvoteClick(reviewsModel.id!!)
             }
         }
     }

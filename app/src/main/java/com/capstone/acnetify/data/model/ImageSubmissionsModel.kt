@@ -1,6 +1,8 @@
 package com.capstone.acnetify.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 /**
  * Data class representing a submitted image.
@@ -12,6 +14,7 @@ import com.google.gson.annotations.SerializedName
  * @property acneType The type of acne associated with the submitted image.
  * @property id The unique identifier of the submitted image.
  */
+@Parcelize
 data class ImageSubmissionsModel(
 
 	@field:SerializedName("image_url")
@@ -25,4 +28,4 @@ data class ImageSubmissionsModel(
 
 	@field:SerializedName("id")
 	val id: String? = null
-)
+) : Parcelable

@@ -59,13 +59,13 @@ class ReviewsByAcneTypePagingSource(
             val offset = (page - 1) * limit
 
             // Use mock data generator function instead of API call
-            val reviews = generateMockReviews(limit)
+            //val reviews = generateMockReviews(limit)
 
             // Make a network request to fetch reviews from the API for the specified page
-            //val response = apiService.getReviewsByAcneType(acneType, limit, offset)
+            val response = apiService.getReviewsByAcneType(acneType, limit, offset)
 
             // Extract the list of reviews from the API response
-            //val reviews = response.data
+            val reviews = response.data
 
             // Construct a LoadResult with the loaded data, previous and next page keys
             LoadResult.Page(

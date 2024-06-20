@@ -8,7 +8,7 @@ data class AcneTypesModel(
     val acneType: String? = null,
 
     @field:SerializedName("image_url")
-    val imageUrl: String? = null,
+    val imageResId: Int? = null,
 
     @field:SerializedName("description")
     val description: String? = null,

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.capstone.acnetify.R
 import com.capstone.acnetify.data.model.AcneTypesModel
 import com.capstone.acnetify.databinding.FragmentAcneTypesBinding
 
@@ -40,24 +41,31 @@ class AcneTypesFragment : Fragment() {
 
     private fun getMockData(): List<AcneTypesModel> {
         return listOf(
-            AcneTypesModel("Acne Type A","https://raw.githubusercontent.com/kisahtegar/machine-learning-android/barcode-scanning/preview.jpg", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n" +
-                    "        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n" +
-                    "        dui nec risus. Maecenas non sodales nisi, vel dictum dolor."),
-            AcneTypesModel("Acne Type B","https://raw.githubusercontent.com/kisahtegar/machine-learning-android/barcode-scanning/preview.jpg", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n" +
-                    "        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n" +
-                    "        dui nec risus. Maecenas non sodales nisi, vel dictum dolor."),
-            AcneTypesModel("Acne Type C","https://raw.githubusercontent.com/kisahtegar/machine-learning-android/barcode-scanning/preview.jpg", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n" +
-                    "        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n" +
-                    "        dui nec risus. Maecenas non sodales nisi, vel dictum dolor."),
-            AcneTypesModel("Acne Type D","https://raw.githubusercontent.com/kisahtegar/machine-learning-android/barcode-scanning/preview.jpg", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n" +
-                    "        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n" +
-                    "        dui nec risus. Maecenas non sodales nisi, vel dictum dolor."),
-            AcneTypesModel("Acne Type E","https://raw.githubusercontent.com/kisahtegar/machine-learning-android/barcode-scanning/preview.jpg", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n" +
-                    "        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n" +
-                    "        dui nec risus. Maecenas non sodales nisi, vel dictum dolor."),
-            AcneTypesModel("Acne Type E","https://raw.githubusercontent.com/kisahtegar/machine-learning-android/barcode-scanning/preview.jpg", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris\n" +
-                    "        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus\n" +
-                    "        dui nec risus. Maecenas non sodales nisi, vel dictum dolor."),
+                AcneTypesModel(
+                    "acne_nodules",
+                    R.drawable.acne_nodule,
+                    getString(R.string.acne_nodule_desc)
+                ),
+            AcneTypesModel(
+                "milia",
+                R.drawable.milia,
+                getString(R.string.acne_milia_desc)
+            ),
+            AcneTypesModel(
+                "blackhead",
+                R.drawable.blackheads,
+                getString(R.string.acne_blackhead_desc)
+            ),
+            AcneTypesModel(
+                "whitehead",
+                R.drawable.whiteheads,
+                getString(R.string.acne_whitehead_desc)
+            ),
+            AcneTypesModel(
+                "papula_pustula",
+                R.drawable.papula_pustula,
+                getString(R.string.acne_papula_pustula_desc)
+            ),
         )
     }
 }

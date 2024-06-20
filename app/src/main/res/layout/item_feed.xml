@@ -6,7 +6,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp"
     app:cardMaxElevation="10dp"
-    app:cardBackgroundColor="#F0EBE3"
+    app:cardBackgroundColor="#FFFFFFFF"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout

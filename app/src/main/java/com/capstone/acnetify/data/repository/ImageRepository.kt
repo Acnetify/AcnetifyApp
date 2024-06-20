@@ -57,9 +57,12 @@ class ImageRepository @Inject constructor(
             val response = apiService.uploadAcneImage(multipartBody)
             Result.Success(response)
         } catch (e: IOException) {
-            Result.Error(e.message ?: "Couldn't reach server, check your internet connection.")
+            Result.Error("Couldn't reach server, check your internet connection.")
         } catch (e: HttpException) {
-            Result.Error(e.message ?: "Oops, something went wrong!")
+            when (e.code()) {
+                400 -> Result.Error("Image is required")
+                else -> Result.Error("Oops, something went wrong!")
+            }
         }
     }
 

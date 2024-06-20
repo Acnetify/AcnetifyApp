@@ -69,4 +69,38 @@
         <item>milia</item>
         <item>papula_pustula</item>
     </string-array>
+
+    <string name="acne_nodule_desc">
+        Jenis jerawat yang ditandai dengan bintil atau simpul keras (nodul) yang berkembang di
+        bagian bawah kulit karena tersumbatnya pori-pori akibat sel kulit mati, rambut, hingga sebum.
+        Bakteri C. acnes yang secara alami hidup di kulit kemudian terperangkap di dalamnya dan
+        menyebabkan infeksi dan pembengkakan.
+
+    </string>
+    <string name="acne_milia_desc">
+        Milia adalah kista kecil yang mengandung keratin (protein kulit) dan biasanya berjumlah banyak.
+        Kista yang tidak berbahaya ini muncul sebagai benjolan kecil berwarna putih mutiara tepat di
+        bawah permukaan kulit. Umumnya, milia tidak berbahaya dan bisa hilang tanpa harus melakukan
+        penanganan tertentu. Meski begitu, beberapa kasus milia tetap membutuhkan perawatan karena
+        dianggap mengganggu bagi orang yang mengalaminya.
+    </string>
+    <string name="acne_blackhead_desc">
+        Jenis komedo yang terbuka dan berwarna hitam (disebabkan oleh pigmen permukaan atau melanin)
+        karena sel kulit mati dan minyak berkumpul dan menyumbat pembukaan folikel kulit sehingga
+        menghasilkan benjolan.
+    </string>
+    <string name="acne_whitehead_desc">
+        Jenis komedo yang tertutup karena sel kulit mati dan minyak berkumpul dan menyumbat pembukaan
+        folikel kulit sehingga menghasilkan benjolan akan tetapi kulit diatas benjolan tersebut tetap
+        tertutup.
+    </string>
+    <string name="acne_papula_pustula_desc">
+        Jerawat pustula berkembang ketika dinding pori mulai mengalami kerusakan. Hal ini menimbulkan
+        noda di kulit berwarna merah dan bengkak yang kemudian disebut papula. Sel darah putih berkumpul
+        di papula untuk melawan infeksi saat pori-pori rusak. Sel-sel ini kemudian membentuk nanah
+        yang kemudian tampak sebagai noda merah. Pada kondisi ini, papula menjadi pustula yang berisi
+        sebum, bakteri, dan serpihan sel.
+    </string>
+    <string name="upvote_button">Upvote Button</string>
+    <string name="downvote_button">Downvote Button</string>
 </resources>

@@ -4,10 +4,14 @@
     <!--  Theme.AppCompat.Light.NoActionBar -->
     <style name="Base.Theme.Acnetify" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#D47C81</item>
+        <item name="android:colorBackground">@color/background_color</item>
     </style>
 
-    <style name="Theme.Acnetify" parent="Base.Theme.Acnetify" />
+    <style name="Theme.Acnetify" parent="Base.Theme.Acnetify">
+        <item name="colorPrimary">#D47C81</item>
+        <item name="android:colorBackground">@color/background_color</item>
+    </style>
 
     <style name="roundedImageViewRounded">
         <item name="cornerFamily">rounded</item>
