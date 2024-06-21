@@ -38,3 +38,36 @@ This the output application after running the project:
     <img src="previews/preview_10.png" alt="Preview 1" width="200" height="400">
     <img src="previews/preview_11.png" alt="Preview 1" width="200" height="400">
 </p>
+
+## 📋 Prerequisites
+
+- [Android Studio](https://developer.android.com/studio)
+- [Java Development Kit (JDK) 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+## 🧪 Installation
+
+Clone the Repository:
+
+    https://github.com/Acnetify/AcnetifyApp.git
+
+Open the Project in Android Studio:
+
+    Open Android Studio
+    Click on File -> Open... and select the cloned project directory
+
+Install Dependencies:
+
+    Android Studio will automatically sync the project and download necessary dependencies. If not, go to File -> Sync Project with Gradle Files.
+
+## ▶️ Running the Project
+
+Build the Project:
+
+    Click on Build -> Rebuild Project in Android Studio.
+    Run the Project
+
+Connect an Android device or start an emulator:
+    
+    Click on the Run button or go to Run -> Run 'app'.
+
+
